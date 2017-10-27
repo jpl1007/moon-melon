@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--Garrett Morgan, Joshua Lampenfield, Chris Gamble, Robbie Eberhardt
+Professor Mullins
+CpSc 215
+11 October 2017-->
+<html>
+   <head>
+       <script>
+		   var imgArray = [];
+		   var counter = 0;
+	       var x = 0;
+           var index = 0;
+           var looping = false;
+           
+           function imgInter(imgId)
+           {
+               imgArray.push(imgId);
+               for (var i = counter; i < imgArray.length; i++)
+               {
+                    document.getElementById('under').innerHTML += "<img src='" + imgArray[i] + "' width='160' height='120'/>";
+									 counter++;
+               }
+           }
+           
+           function start()
+           {	
+				looping = true;
+               
+				if(looping == true)
+                {
+				    document.getElementById('imgs').innerHTML = "";
+				    setInterval(function(){changeImage()}, 1000);
+				}
+           }
+
+           function deleteLast()
+           {
+					var i = 0;
+					var counter = 0;
+					
+               document.getElementById('under').innerHTML = "";
+               imgArray.length = imgArray.length - 1;
+						
+                        for (var i = counter; i < imgArray.length; i++)
+                        {
+                            document.getElementById('under').innerHTML += "<img src='" + imgArray[i] + "' width='160' height='120'/>";
+									 counter++;
+                        }
+					
+					}
+					
+           function stop()
+           {
+				document.getElementById('theImg').src = imgArray[0];
+				looping = false;
+           }
+					
+           function changeImage()
+           {
+				if(looping) {
+				    if (index == imgArray.length)
+                    {
+                        index = 0;
+                    }
+				        var image = document.getElementById('theImg');
+				        image.src = imgArray[index];
+				        index = index + 1;
+                    }
+           }
+       </script>
+
+   </head>
+   <body>
+
+       <img id = "theImg" src = ""> 
+	 
+  <div class ="Images" id = "imgs">
+	
+   <img src ="Images/startEmpty.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/startBall.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/bend1.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/standBall.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/holdRabbit.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/escape.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/handsUp.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/handsOut.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/attentionLeft.jpg" style="width:270px;height:150px;"  onClick="imgInter(this.src);">
+  
+   <img src ="Images/attentionRight.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/walkLFF.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/walkRFF.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/bendBall.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/holdBall.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/safe.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/cowForward.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+   
+   <img src ="Images/cowLeft.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/bBall.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+
+   <img src ="Images/rabbit.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+          
+   <img src ="Images/lunchLady.jpg" style="width:270px;height:150px;" onClick="imgInter(this.src);">
+   </div>
+     
+   <button type ="button" onclick="deleteLast();">Delete Last</button>
+   <button type ="button" onclick="start();">Start</button>
+   <button type ="button" onclick="stop();">Stop</button>
+   <br>
+       <div id="under">
+       
+       
+       
+       
+       </div>
+   
+</body>
+</html>
+
